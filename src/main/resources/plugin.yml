@@ -1,0 +1,9 @@
+name: CommandBlockScopes
+version: '1.0'
+main: net.harupiza.commandBlockScopes.CommandBlockScopes
+api-version: '1.20'
+authors: [ pizzaharumaki ]
+description: Powered by CustomBlockData library
+website: https://github.com/fhrk-78
+
+depend: [WorldGuard]
