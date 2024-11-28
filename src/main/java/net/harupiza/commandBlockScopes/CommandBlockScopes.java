@@ -38,7 +38,7 @@ public final class CommandBlockScopes extends JavaPlugin implements Listener {
             String uuid_string = player.getUniqueId().toString();
             customBlockData.set(nskey, PersistentDataType.STRING, uuid_string);
 
-            logger.info(uuid_string + "によるコマンドブロック作成を記録しました");
+            logger.info("Recorded command block installation by " + uuid_string);
         }
     }
 
@@ -47,16 +47,16 @@ public final class CommandBlockScopes extends JavaPlugin implements Listener {
         if (event.getSender() instanceof BlockCommandSender blockSender) {
             event.setCancelled(true);
 
-            // 実行元のコマンドブロックを取得
+            // Get command block
             Block block = blockSender.getBlock();
-            // コマンド内容を取得
+            // Get command
             String command = event.getCommand();
 
             PersistentDataContainer customBlockData = new CustomBlockData(block, this);
             String uuid_string = customBlockData.get(nskey, PersistentDataType.STRING);
 
             if (uuid_string == null) {
-                logger.warning("コマンドブロック作成者を記録していません");
+                logger.warning("Command block creator not recorded");
                 return;
             }
 
@@ -64,12 +64,12 @@ public final class CommandBlockScopes extends JavaPlugin implements Listener {
             Player author = Bukkit.getPlayer(uuid);
 
             if (author == null) {
-                logger.warning("コマンドブロック作成者を取得できません");
+                logger.warning("Unable to retrieve command block creator");
                 return;
             }
 
             author.performCommand(command);
-            logger.info(author.getName() + "としてコマンドを実行しました。");
+            logger.info("The command was executed as " + author.getName());
         }
     }
 }
