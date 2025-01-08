@@ -11,6 +11,10 @@ commands:
     description: place command block at here
     aliases: [pcb]
     permission: CommandBlockScopes.placeCB
+  editcb:
+    description: edit command block
+    aliases: [ecb]
+    permission: CommandBlockScopes.editCB
 
 permissions:
   CommandBlockScopes.*:
@@ -19,3 +23,5 @@ permissions:
       - CommandBlockScopes.placeCB
   CommandBlockScopes.placeCB:
     description: can execute /placecb
+  CommandBlockScopes.editCB:
+    description: can execute /editcb
