@@ -1,7 +1,21 @@
 name: CommandBlockScopes
-version: '1.1'
+version: '1.2'
 main: net.harupiza.commandBlockScopes.CommandBlockScopes
 api-version: '1.20'
 authors: [ pizzaharumaki ]
 description: Powered by CustomBlockData library
 website: https://github.com/fhrk-78
+
+commands:
+  placecb:
+    description: place command block at here
+    aliases: [pcb]
+    permission: CommandBlockScopes.placeCB
+
+permissions:
+  CommandBlockScopes.*:
+    default: op
+    children:
+      - CommandBlockScopes.placeCB
+  CommandBlockScopes.placeCB:
+    description: can execute /placecb
